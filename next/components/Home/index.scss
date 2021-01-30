@@ -1,0 +1,355 @@
+.page{
+    width: 100%;
+    height: 100%;
+}
+.top-box {
+    background: rgb(24, 120, 243);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        margin: 0 auto;
+        max-height: 37px;
+        padding-top: 29px;
+    }
+}
+
+.top-box-info {
+    background: rgb(24, 120, 243);
+    padding: 24px 10px 23px;
+
+    .top-box-info-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .content {
+            display: flex;
+            line-height: 18px;
+            text-align: center;
+
+            .title {
+                font-size: 14px;
+                color: #fff;
+                opacity: .5;
+            }
+
+            .text {
+                padding-left: 7px;
+                font-size: 15px;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.nav {
+    display: flex;
+    align-items: flex-end;
+    background: #fff;
+    border-bottom: 1px solid #e1e1e1;
+
+    .nav-content {
+        display: flex;
+        overflow-x: auto;
+        flex: 1;
+
+        .nav-item {
+            height: 50px;
+            line-height: 50px;
+            font-size: 14px;
+            transition-duration: 0.5s;
+            padding: 0px 15px;
+
+            .nav-text {
+                white-space: nowrap;
+                color: #777;
+                font-size: 14px;
+            }
+        }
+    }
+
+    .sort-box {
+        display: block;
+        width: 40px;
+        height: 50px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.top-info {
+    margin-top: 10px;
+    background: #fff;
+    border-top: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+
+    .top-info-item {
+        display: flex;
+        align-items: center;
+        margin: 0 14px;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid #e1e1e1;
+        }
+
+        height: 40px;
+
+        .icon {
+            width: 31px;
+            height: 17px;
+            font-size: 11px;
+            line-height: 17px;
+            color: rgb(119, 119, 119);
+            text-align: center;
+            background: #f7f7f7;
+            border-radius: 3px;
+        }
+
+        .text {
+            margin-left: 10px;
+            color: #333;
+            font-size: 14px;
+        }
+    }
+}
+
+.list {
+    width: 100%;
+    height: 100%;
+    .list-item {
+        border-top: 1px solid #e1e1e1;
+        border-bottom: 1px solid #e1e1e1;
+        background: #fff;
+        margin-top: 10px;
+        padding: 15px;
+
+        .list-item-h {
+            display: flex;
+            align-items: flex-start;
+
+            .img {
+                width: 40px;
+                height: 40px;
+                overflow: hidden;
+                border-radius: 50%;
+                flex-shrink: 0;
+
+                img {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                }
+
+                .default-avatar {
+                    background: rgb(213, 229, 160);
+                    color: #fff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                    width: 100%;
+                    font-size: 18px;
+                }
+            }
+
+            .info {
+                margin-left: 9px;
+                flex-grow: 0;
+                width: 100%;
+                overflow: hidden;
+
+                .name {
+                    font-weight: 700;
+                    line-height: 18px;
+                    color: #333;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    font-size: 15px;
+                }
+
+                .sub-box {
+                    color: #aaa;
+                    margin-top: 5px;
+                    display: flex;
+                    align-items: center;
+                    flex-grow: 0;
+                    width: 100%;
+                    overflow: hidden;
+
+                    .date {
+                        font-size: 13px;
+                        font-weight: 400;
+                        white-space: nowrap;
+                    }
+
+                    .question-box {
+                        margin-left: 5px;
+                        font-size: 13px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+
+
+                        .question-box-content {
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+
+                            span {
+                                color: #1878F3;
+                            }
+                        }
+                    }
+                }
+
+
+            }
+        }
+
+        .list-item-content {
+            padding-top: 10px;
+
+            .title {
+                font-size: 16px;
+                margin-bottom: 6px;
+
+                span {
+                    color: #1878F3;
+                }
+            }
+
+            .image-list {
+                margin-top: 5px;
+                display: flex;
+                align-items: flex-start;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+
+                .image-item {
+                    max-width: 80%;
+                    max-height: 80%;
+                    background-position: center center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    margin-top: 5px;
+                    &:not(:nth-child(3n+3)) {
+                        margin-right: 5px;
+                    }
+                    &.image-count-2{
+                        height: 105px;
+                        width: 48%;
+                    }
+                    &.image-count-3{
+                        height: 105px;
+                        width: 32%;
+                    }
+
+                    
+
+                    img {
+                        display: block;
+                        width: 100%;
+                        opacity: 0;
+                    }
+                }
+            }
+
+            .qq-emotion {
+                display: inline-block;
+                vertical-align: top;
+                height: 20px;
+                width: 20px;
+            }
+
+            .video-main {
+                position: relative;
+                height: 200px !important;
+                width: 50%;
+                margin-top: 10px;
+                .play{
+                    width: 40px;
+                    height: 40px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+                .bgimg {
+                    width: 100%;
+                    height: 100%;
+                    background-position: center center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+
+        .list-item-f {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #aaa;
+
+            .item {
+                display: flex;
+                align-items: center;
+
+                .qui-icon {
+                    font-size: 14px;
+                    margin-right: 7px;
+                }
+
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+.bottom-nav {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+
+    .add {
+        width: 44px;
+        height: 44px;
+        margin: 4px 0 0 4px;
+
+        img {
+            width: 100%;
+            display: block;
+        }
+    }
+
+    .item {
+        padding-top: 7px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 20%;
+        color: #777;
+        font-size: 14px;
+
+        .qui-icon {
+            font-size: 18px;
+        }
+    }
+}
+
+.tips{
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+}

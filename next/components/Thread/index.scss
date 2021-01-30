@@ -1,0 +1,120 @@
+.header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 9px 20px;
+    width: 100%;
+    border-bottom: 1px solid #e1e1e1;
+    z-index: 10;
+    .goback{
+        font-size: 15px;
+        color: #333;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.thread-content{
+    background: #fff;
+    padding: 50px 10px 10px 10px;
+
+    .info-box {
+        display: flex;
+        align-items: flex-start;
+
+        .img {
+            width: 40px;
+            height: 40px;
+            overflow: hidden;
+            border-radius: 50%;
+            flex-shrink: 0;
+
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+
+            .default-avatar {
+                background: rgb(213, 229, 160);
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                width: 100%;
+                font-size: 18px;
+            }
+        }
+
+        .info {
+            margin-left: 9px;
+            flex-grow: 0;
+            width: 100%;
+            overflow: hidden;
+
+            .name {
+                font-weight: 700;
+                line-height: 18px;
+                color: #333;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-size: 15px;
+            }
+
+            .sub-box {
+                color: #aaa;
+                margin-top: 5px;
+                display: flex;
+                align-items: center;
+                flex-grow: 0;
+                width: 100%;
+                overflow: hidden;
+
+                .date {
+                    font-size: 13px;
+                    font-weight: 400;
+                    white-space: nowrap;
+                }
+
+                .question-box {
+                    margin-left: 5px;
+                    font-size: 13px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+
+
+                    .question-box-content {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+
+                        span {
+                            color: #1878F3;
+                        }
+                    }
+                }
+            }
+
+
+        }
+    }
+
+    .thread-body{
+        margin-top: 10px;
+        .title{
+            padding-bottom: 20px;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 160%;
+            text-align: left;
+            word-break: break-all;
+        }
+    }
+
+}
