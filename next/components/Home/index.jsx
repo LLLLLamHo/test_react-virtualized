@@ -24,9 +24,6 @@ import TopInfo from './TopInfo';
 //     }
 // }
 
-console.log(JSON.stringify(mock.slice(0, 10)))
-
-
 import { List, CellMeasurer, CellMeasurerCache, AutoSizer, InfiniteLoader } from 'react-virtualized';
 
 export default class Home extends Component {
