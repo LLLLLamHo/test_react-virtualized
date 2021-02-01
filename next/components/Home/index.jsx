@@ -24,7 +24,7 @@ import TopInfo from './TopInfo';
 //     }
 // }
 
-// console.log(JSON.stringify(mock))
+console.log(JSON.stringify(mock.slice(0, 10)))
 
 
 import { List, CellMeasurer, CellMeasurerCache, AutoSizer, InfiniteLoader } from 'react-virtualized';
@@ -39,8 +39,6 @@ export default class Home extends Component {
           });
         this.state = {
             list: [{type: 'header'}, {type: 'nav'},{type: 'top'}, ...this.initData(mock.slice(0,10)),{type: 'loading'}],
-            page: 1,
-            maxPage: 16
         };
 
         this.rowRenderer = this.rowRenderer.bind(this);
@@ -111,9 +109,6 @@ export default class Home extends Component {
     _isRowLoaded({index}) {
         // console.log('_isRowLoaded', this.state.list.length - index <= 5);
         if (!this.loadData && this.state.list.length - index <= 5) {
-            if ( this.state.page >= this.state.maxPage ) {
-                return true;
-            }
             this.loadData = true;
             return false;
         }else {
@@ -122,22 +117,12 @@ export default class Home extends Component {
     }
 
     _loadMoreRows({startIndex, stopIndex}) {
-        // console.log('_loadMoreRows', startIndex, stopIndex)
         let promiseResolver;
-        console.log('_loadMoreRows')
         setTimeout(() => {
-            const start = this.state.page * 10 + 1;
-            const end = start + 9;
-            const newPage = this.state.page + 1;
-            const newList = [...this.state.list.slice(0, this.state.list.length - 2), ...this.initData(mock.slice(start, end))];
-            if ( newPage < this.state.maxPage ) {
-                newList.push({type: "loading"});
-            } else {
-                newList.push({type: "no_more"});
-            }
+            const newList = [...this.state.list.slice(0, this.state.list.length - 2), ...this.initData(mock)];
+            newList.push({type: "loading"});
             this.setState({
                 list: newList,
-                page: this.state.page + 1
             }, () => {
                 this.loadData = false;
                 promiseResolver();
