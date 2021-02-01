@@ -1,5 +1,4 @@
 import React from 'react'
-import dayjs from 'dayjs'
 import Link from 'next/link'
 
 export default class Item extends React.Component {
@@ -47,7 +46,7 @@ export default class Item extends React.Component {
                                     item.user.username
                                 }</p>
                                 <div className='sub-box'>
-                                    <p className='date'>{dayjs(item.updatedAt).format('YYYY-MM-DD HH:mm:ss')}</p>
+                                    <p className='date'>2021-11-11 14:22:22</p>
                                     {
                                         item.type == '5' && <div className='question-box'>
                                             {

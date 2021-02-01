@@ -2,11 +2,8 @@ import Head from 'next/head'
 import { Component } from 'react';
 import Parser from "react-html-parser";
 import s9e from './s9e';
-
 import mock from './mock';
-import router from 'next/router';
 import './index.scss';
-import Link from 'next/link'
 import Item from './item';
 import Header from './Header';
 import Nav from './Nav';
