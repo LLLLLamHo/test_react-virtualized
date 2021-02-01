@@ -50,7 +50,6 @@ export default class Home extends Component {
     loadData = false
 
     componentDidMount() {
-        console.log(this.state.list);
         const timing = window.performance.timing;
         this.setState({
             show: true,

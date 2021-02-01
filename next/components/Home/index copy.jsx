@@ -36,7 +36,6 @@ export default class Home extends Component {
         this.setState({
             show: true
         })
-        console.log(this.state);
     }
 
     initData(data) {
