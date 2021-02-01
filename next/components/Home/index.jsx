@@ -12,6 +12,20 @@ import Header from './Header';
 import Nav from './Nav';
 import TopInfo from './TopInfo';
 
+// for ( let i = 0; i < mock.length; i++ ) {
+//     if (mock[i].user.avatarUrl) {
+//         mock[i].user.avatarUrl = mock[i].user.avatarUrl.replace(/\?sign\=.*/, '');
+//     }
+//     if (mock[i].firstPost.images && mock[i].firstPost.images.length > 0) {
+//         for ( let n = 0; n < mock[i].firstPost.images.length; n++ ) {
+//             mock[i].firstPost.images[n].url = mock[i].firstPost.images[n].url.replace(/\?sign\=.*/, '');
+//             mock[i].firstPost.images[n].thumbUrl = mock[i].firstPost.images[n].thumbUrl.replace(/\?sign\=.*/, '');
+//         }
+//     }
+// }
+
+// console.log(JSON.stringify(mock))
+
 
 import { List, CellMeasurer, CellMeasurerCache, AutoSizer, InfiniteLoader } from 'react-virtualized';
 
