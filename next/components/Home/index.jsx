@@ -50,16 +50,17 @@ export default class Home extends Component {
     loadData = false
 
     componentDidMount() {
-        const timing = window.performance.timing;
-        this.setState({
-            show: true,
-            performance: {
-                first: (timing.responseStart - timing.domainLookupStart) + '毫秒',
-                dom: (timing.domContentLoadedEventEnd - timing.fetchStart) + '毫秒',
-                onLoad:  (timing.loadEventStart - timing.fetchStart)  + '毫秒'
-            }
-        })
-        
+        window.addEventListener('load', () => {
+            const timing = window.performance.timing;
+            this.setState({
+                show: true,
+                performance: {
+                    first: (timing.responseStart - timing.domainLookupStart) + '毫秒',
+                    dom: (timing.domContentLoadedEventEnd - timing.fetchStart) + '毫秒',
+                    onLoad:  (timing.loadEventStart - timing.fetchStart)  + '毫秒'
+                }
+            })
+        });
     }
 
     initData(data) {
