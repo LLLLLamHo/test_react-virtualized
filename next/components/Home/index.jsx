@@ -30,9 +30,15 @@ export default class Home extends Component {
         this._cache = new CellMeasurerCache({
             fixedWidth: true,
             minHeight: 50,
+            show: false,
           });
         this.state = {
             list: [{type: 'header'}, {type: 'nav'},{type: 'top'}, ...this.initData(mock.slice(0,10)),{type: 'loading'}],
+            performance: {
+                first: null,
+                dom: null,
+                onLoad: null
+            }
         };
 
         this.rowRenderer = this.rowRenderer.bind(this);
@@ -45,6 +51,16 @@ export default class Home extends Component {
 
     componentDidMount() {
         console.log(this.state.list);
+        const timing = window.performance.timing;
+        this.setState({
+            show: true,
+            performance: {
+                first: (timing.responseStart - timing.domainLookupStart) + '毫秒',
+                dom: (timing.domContentLoadedEventEnd - timing.fetchStart) + '毫秒',
+                onLoad:  (timing.loadEventStart - timing.fetchStart)  + '毫秒'
+            }
+        })
+        
     }
 
     initData(data) {
@@ -136,6 +152,14 @@ export default class Home extends Component {
                     <title>Discuz!Q</title>
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
+
+
+                <div className='performance'>
+                    <p>首字节： {this.state.performance.first || '计算中...'}</p>
+                    <p>domReady: {this.state.performance.dom || '计算中...'}</p>
+                    <p>onLoad: {this.state.performance.onLoad || '计算中...'}</p>
+                </div>
+
                 <InfiniteLoader
                     isRowLoaded={this._isRowLoaded}
                     loadMoreRows={this._loadMoreRows}

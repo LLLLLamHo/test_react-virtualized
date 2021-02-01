@@ -2,6 +2,21 @@
     width: 100%;
     height: 100%;
 }
+
+.performance{
+    font-size: 14px;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #fff;
+    z-index: 99;
+    border: 1px solid red;
+    p{
+        margin-bottom: 5px;
+    }
+}
+
 .top-box {
     background: rgb(24, 120, 243);
     display: flex;
