@@ -37,7 +37,8 @@ export default class Home extends Component {
             performance: {
                 first: null,
                 dom: null,
-                onLoad: null
+                onLoad: null,
+                render: null
             }
         };
 
@@ -50,13 +51,20 @@ export default class Home extends Component {
     loadData = false
 
     componentDidMount() {
+        const timing = window.performance.timing;
+        this.setState({
+            show: true,
+            performance: {
+                first: (timing.responseStart - timing.domainLookupStart) + '毫秒',
+                dom: (timing.domContentLoadedEventEnd - timing.fetchStart) + '毫秒',
+                render: (Date.now() - timing.responseStart) + '毫秒'
+            }
+        })
+    
         window.addEventListener('load', () => {
-            const timing = window.performance.timing;
             this.setState({
                 show: true,
                 performance: {
-                    first: (timing.responseStart - timing.domainLookupStart) + '毫秒',
-                    dom: (timing.domContentLoadedEventEnd - timing.fetchStart) + '毫秒',
                     onLoad:  (timing.loadEventStart - timing.fetchStart)  + '毫秒'
                 }
             })
@@ -157,6 +165,7 @@ export default class Home extends Component {
                 <div className='performance'>
                     <p>首字节： {this.state.performance.first || '计算中...'}</p>
                     <p>domReady: {this.state.performance.dom || '计算中...'}</p>
+                    <p>render: {this.state.performance.render || '计算中...'}</p>
                     <p>onLoad: {this.state.performance.onLoad || '计算中...'}</p>
                 </div>
 
