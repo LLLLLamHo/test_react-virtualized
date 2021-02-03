@@ -64,9 +64,9 @@ export default class Home extends Component {
         window.addEventListener('load', () => {
             this.setState({
                 show: true,
-                performance: {
+                performance: Object.assign({}, this.state.performance, {
                     onLoad:  (timing.loadEventStart - timing.fetchStart)  + '毫秒'
-                }
+                })
             })
         });
     }
