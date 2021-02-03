@@ -34,6 +34,7 @@ export default class Home extends Component {
           });
         this.state = {
             list: [{type: 'header'}, {type: 'nav'},{type: 'top'}, ...this.initData(mock.slice(0,10)),{type: 'loading'}],
+            wait: 0,
             performance: {
                 first: null,
                 dom: null,
@@ -51,9 +52,21 @@ export default class Home extends Component {
     loadData = false
 
     componentDidMount() {
+        let wait = 0;
+        const search = window.location.search.replace('?', '')
+        if (search !== '') {
+        const searchArr = search.split('&')
+        for (let i = 0; i < searchArr.length; i++) {
+            const [key, value] = searchArr[i].split('=')
+                if (key === 'wait') {
+                    wait = value
+                }
+            }
+        }
         const timing = window.performance.timing;
         this.setState({
             show: true,
+            wait,
             performance: {
                 first: (timing.responseStart - timing.domainLookupStart) + '毫秒',
                 dom: (timing.domContentLoadedEventEnd - timing.fetchStart) + '毫秒',
@@ -145,7 +158,7 @@ export default class Home extends Component {
                 this.loadData = false;
                 promiseResolver();
             })
-        }, 500);
+        }, this.state.wait);
 
         return new Promise((res) => {
             promiseResolver = res;
